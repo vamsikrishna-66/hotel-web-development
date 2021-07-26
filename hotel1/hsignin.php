@@ -1,0 +1,106 @@
+<html>
+    <head>
+        <script  type="text/javascript" src="hotel1.js"></script> 
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>login</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="hotel3.js"></script>
+        <meta charset="utf-8">  
+        <style>
+            .card{
+                text-align: center;
+                width: 600px;
+                height:70%;
+                margin-top: 40px;
+                margin-left: 30%;
+                background-color: rgb(243, 121, 64);
+                background-size:cover;             
+            }
+            #log{
+                margin-top: 80px;
+                margin-left:32%;
+                margin-right: 30%
+            }
+            #tot{
+                text-align: center;
+            }
+            #e,#p {
+               
+                display: flex;
+                padding: 20px;
+                border-radius: 20px;
+                margin:10px;
+                border:transparent;
+            }
+            #e:focus,#p:focus,.submit-btn:focus{
+                outline:none;
+            }
+            .submit-btn{
+                padding: 30px;
+                border-radius: 20px;
+                margin-left: 70px; 
+                border:transparent;
+                background-color: #3f87a6;        
+            }
+            #m{
+                width:50px;
+                height:30px;
+                margin-top: 10px;
+
+            }
+            .submit-btn:hover{
+                background-color: lightgreen;
+            }
+           #top{
+               
+               margin-top: 50px;
+               margin-left: 50px;
+           }
+           #r{
+               margin-top: 65px;
+           }
+          
+         
+        </style>
+     </head>
+
+    <body style="background-image:linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);">
+        <div id="top">
+            <a class="navbar-brand" href="http://localhost/hotel/hotel1.html">
+                <div class="logo-image">
+                      <img class="rounded-circle" data-toggle="tooltip" title="Home" src="https://www.pngitem.com/pimgs/m/82-823439_bon-appetit-best-new-restaurants-2018-png-download.png" style="width:120px;height:120px" class="img-fluid">
+                </div>
+          </a>
+            
+        
+    </div>
+       <div id="tot" >
+           <div class="card" >
+               <img  class="rounded-circle"src="mbenz.png" alt ="img" style="text-align: center;width:160px;height:160px;margin-left: 37%;margin-top:20px;">
+               <div id="log">
+                   <form id="f" action="./sup.php" method="POST"> 
+                       <div>
+                        <input type="hidden" id="myPhpValue" value="<?php echo $lname?>" />
+                       <input id="e" type="text" name="nam" placeholder="enter your phone number" required><br>
+                        <input id="p" type="password" name="pso" placeholder="enter the password" required><br>
+                        <div id="m">
+                            <div class="form-btn"> <button class="submit-btn">login</button>
+                            
+                            </div>
+                        </div>
+                        <div id="r">
+                        <p>haven't registered yet?<a href="http://localhost/hotel/signup.html" style="color:darkblue">signup</a> here</p>
+                        </div>
+                        </div>
+                   </form>
+               </div>
+             </div>
+       </div>
+    </body>
+</html>

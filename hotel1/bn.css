@@ -1,0 +1,449 @@
+body {
+    background-image: linear-gradient(to right, #7B1FA2, #E91E63);
+
+}
+#top{
+    position:absolute;
+    margin-left: 40px;
+    margin-top: 40px;
+    z-index: 1;
+   
+}
+
+#hidden2{
+    background-color: rgb(75, 76, 160);
+    border-radius: 30px;
+    width:50%;
+    margin-left: 23%;
+}
+
+#details h4{
+    color:rgb(248, 248, 248);
+    background-color: grey;
+      opacity: .7;
+      padding:10px;border-radius: 20px;
+       margin-bottom:25px;
+    font-family: 'Raleway', sans-serif;
+}
+#details h4 span{
+    float:right;
+    font-size: medium;
+}
+#no{
+    float:right;
+    padding:10px;
+    margin-top: 10px;
+    width:20%;
+    border-radius: 30px;
+    background-color: teal; 
+    border:transparent;
+}
+#cb{
+    float:right;
+    padding:10px;
+    margin-top: 10px;
+    margin-left: 10px;
+    width:20%;
+    border-radius: 30px;
+    background-color: rgb(154, 251, 75); 
+    border:transparent;
+}
+#cb:hover,#no:hover{
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+  
+}
+#cb:focus{
+    border:transparent;
+}
+
+.section {
+    position: relative;
+    height: 100vh
+}
+
+.section .section-center {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%)
+}
+
+#booking {
+    font-family: 'Raleway', sans-serif;
+}
+
+.booking-form {
+    position: relative;
+    max-width: 642px;
+    width: 100%;
+    margin: auto;
+    padding: 40px;
+    background-image: url('https://i.imgur.com/8z1tx3u.jpg');
+    background-size: cover;
+    border-radius: 5px;
+    z-index: 20
+}
+
+.booking-form::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: -1
+}
+
+.booking-form .form-header {
+    text-align: center;
+    position: relative;
+    margin-bottom: 30px
+}
+
+.booking-form .form-header h1 {
+    font-weight: 700;
+    text-transform: capitalize;
+    font-size: 42px;
+    margin: 0px;
+    color: #fff
+}
+
+.booking-form .form-group {
+    position: relative;
+    margin-bottom: 30px
+}
+
+.booking-form .form-control {
+    background-color: rgba(255, 255, 255, 0.2);
+    height: 60px;
+    padding: 0px 25px;
+    border: none;
+    border-radius: 40px;
+    color: #fff;
+    -webkit-box-shadow: 0px 0px 0px 2px transparent;
+    box-shadow: 0px 0px 0px 2px transparent;
+    -webkit-transition: 0.2s;
+    transition: 0.2s
+}
+
+.booking-form .form-control::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.5)
+}
+
+.booking-form .form-control:-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.5)
+}
+
+.booking-form .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.5)
+}
+
+.booking-form .form-control:focus {
+    -webkit-box-shadow: 0px 0px 0px 2px #ff8846;
+    box-shadow: 0px 0px 0px 2px #ff8846
+}
+
+.booking-form input[type="date"].form-control {
+    padding-top: 16px
+}
+
+.booking-form input[type="date"].form-control:invalid {
+    color: rgba(255, 255, 255, 0.5)
+}
+
+.booking-form input[type="date"].form-control+.form-label {
+    opacity: 1;
+    top: 10px
+}
+
+.booking-form select.form-control {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none
+}
+
+.booking-form select.form-control:invalid {
+    color: rgba(255, 255, 255, 0.5)
+}
+
+.booking-form select.form-control+.select-arrow {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 32px;
+    line-height: 32px;
+    height: 32px;
+    text-align: center;
+    pointer-events: none;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px
+}
+
+.booking-form select.form-control+.select-arrow:after {
+    content: '\279C';
+    display: block;
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg)
+}
+
+.booking-form select.form-control option {
+    color: #000
+}
+
+.booking-form .form-label {
+    position: absolute;
+    top: -10px;
+    left: 25px;
+    opacity: 0;
+    color: #ff8846;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    height: 15px;
+    line-height: 15px;
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all
+}
+
+.booking-form .form-group.input-not-empty .form-control {
+    padding-top: 16px
+}
+
+.booking-form .form-group.input-not-empty .form-label {
+    opacity: 1;
+    top: 10px
+}
+
+.booking-form #check {
+    color: #fff;
+    background-color: #e35e0a;
+    font-weight: 700;
+    height: 60px;
+    padding: 10px 30px;
+    width: 100%;
+    border-radius: 40px;
+    border: none;
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: 1.3px;
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all
+}
+
+.booking-form #check:hover,
+.booking-form #check:focus {
+    opacity: 0.9
+}
+#navtop{
+    display: none;
+    position: absolute;
+    margin-left: 85%;
+    margin-top: 60px;
+    transform: translateY(-1200%);
+} 
+@media screen and (max-width:800px){
+    #booking {
+        margin-top: 150px;
+        transition: 0.7s ease;
+    }
+ 
+    #top{
+        position: initial;
+        margin-top: 40px;
+        margin-bottom: 0mm;
+    }
+    #navtop{
+        transform: translateY(-1600%);
+    }
+}
+@media screen and (min-width:800px){
+    #booking{
+        transition: 0.7s ease;
+    }
+    
+}
+body{
+    margin:0
+}
+.navbar{
+    display: block;
+    position:absolute;
+    margin-left:88%;
+ margin-right: 0;
+ width:165px;
+   height: 100%;
+ background-image: linear-gradient(to bottom,rgb(150, 218, 230),rgb(220, 92, 236));
+ transform: translateY(-100%);
+}
+.navbar-toggler {
+    text-align: center;
+    margin-left: 5px;
+    margin-top: 510px;
+    margin-right:1px ;
+}
+ h6{
+    margin-left:10%;
+   
+    transform: rotate(90deg);
+    color: black;
+    letter-spacing: 15px;
+     font-weight: bold;
+     font-size: 20px;
+    
+
+}
+
+  
+ @media screen and (max-width:1100px){
+    .navbar,#o{
+        display: none;       
+    }
+    #navtop{
+        display: block;
+    }
+} 
+#navtop:hover{
+    cursor:pointer
+}
+
+#o{
+    position: absolute;
+}
+
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  #mysidenav7{
+    background-image: url("https://cdn.crello.com/api/media/medium/222814610/stock-photo-top-view-black-plate-bon");
+background-size: cover;
+      border-radius: 30px;
+      left:0;
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #e68c38;
+    display: block;
+    transition: 0.5s;
+   
+  }
+  
+  .sidenav a:hover{
+    color: #f1f1f1;
+  }
+ 
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  #otop{
+      margin:5px;
+  }
+  #o1{
+      margin-bottom: 10px;
+  }
+  #o10{
+      display: flex;
+}
+.wrapper{
+   
+    margin:50px auto;
+   
+  }
+
+  .menu{
+    justify-content:space-between;
+  }
+  .single-menu{
+    flex-basis:580px;
+    PADDING-top: 10px;
+    margin-bottom: 0;
+    padding-bottom:10px;
+    border-bottom:1px solid #ddd;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+  }
+ .cla1{
+     margin-top:60px;
+     margin-left: 10px;
+ }
+
+  .single-menu h4{
+    margin-left: 20px;
+    font-size:22px;
+    color:rgb(238, 152, 39);
+  }
+  .single-menu p{
+    color: white;
+    margin-top: 15px;
+    margin-left: 20px;
+  }
+  .single-menu h4 span{
+    float:right;
+    color:#b6b1fa;
+  }
+  #cla{
+      margin-left: 10px;
+  }
+  #cla h3{
+    color: #d25dd6;
+    margin-bottom:60px;
+    
+  }
+  #mysidenav6{
+    background-image: url("https://i.pinimg.com/originals/08/88/93/088893b4d5b80bb1f7705bc2d368e866.jpg");
+    border-radius: 80px 0 0 80px   ;
+
+  }
+ #mydidenav7{
+     position: absolute;
+ }
+
+
+  @media screen and (max-width:1100px){
+   
+    .menu{
+      display: grid;
+      margin-left: 0px;
+      transition: .7s ease;
+    }
+    #cla{
+      margin-left: 0px;
+      transition: .7s ease;
+    }
+    .title{
+      transform: translateX(-30%);
+      transition: .7s ease;
+    }
+    
+  }
+  @media screen and (min-width:1100px){
+    .menu,#cla,.title{
+      transition: .7s ease;
+  
+    }
+  }

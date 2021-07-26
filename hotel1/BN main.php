@@ -1,0 +1,277 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BOOK</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="bn.css">
+        <script src="hotel3.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    </head>
+    <?php
+session_start();
+include("conf.php");
+$db="hotel";
+$username=$_POST["nam"];
+$cin=$_POST["cin"];
+$cout=$_POST["cout"];
+$troom=$_POST["troom"];
+$noofad=$_POST["noofad"];
+$noofc=$_POST["noofchild"];
+$coup=$_POST["coup"];
+$pn=$_POST["ph"];
+$hb=$_POST["branch"];
+$noofroom=$_POST["noofroom"];
+
+$_SESSION["username"]=$username;
+$_SESSION["cin"]=$cin;
+$_SESSION["cout"]=$cout;
+$_SESSION["troom"]=$troom;
+$_SESSION["noofad"]=$noofad;
+$_SESSION["noofc"]=$noofc;
+$_SESSION["coup"]=$coup;
+$_SESSION["phno"]=$pn;
+$_SESSION["branch"]=$hb;
+$_SESSION["noofroom"]=$noofroom;
+
+
+$conn = mysqli_connect($server, $user, $pass, $db); 
+  if (!$conn){ 
+   echo "NO CONNECTION ";
+  }
+else {echo "<h1>SUCCESSFULLY CONNECTED<h1><br>";}
+
+$sql3 = "INSERT INTO book (nam,checkin,checkout,typeofroom,noofad,noofchild,coupen,ph,hotelb,noofroom	)
+VALUES ('$username', '$cin','$cout','$troom','$noofad','$noofc','$coup','$pn','$hb','$noofroom')";
+if (mysqli_query($conn, $sql3)) {
+    echo '<script>book()</script>';
+
+
+} else {
+    echo "ERROR: " . $sql3 . "<br>" . mysqli_error($conn);
+}
+?>
+    <body id="bookpage" onload="al()">
+        
+        <div id="top">
+            
+            <a class="navbar-brand" href="http://localhost/hotel/hotel1.html">
+                <div class="logo-image">
+                      <img class="rounded-circle" data-toggle="tooltip" title="Home" src="https://www.pngitem.com/pimgs/m/82-823439_bon-appetit-best-new-restaurants-2018-png-download.png" style="width:120px;height:120px" class="img-fluid">
+                </div>
+              </a>
+              
+        </div>
+       
+        <div id="booking" class="section">
+            <div class="section-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="booking-form">
+                            <div class="form-header">
+                                <h1>Make your reservation</h1>
+                            </div>
+                           
+                            <form  id="fo" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+                                
+                                <div class="form-group"> <input class="form-control" type="text" id="bname" placeholder="Name"  name='nam'autocomplete="off"> </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group"> <input class="form-control"  id="txtdate" type="date" name='cin' required /> <span  class="form-label">Check In</span> </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group"> <input class="form-control" id="txtdate" type="date" name='cout' required> <span  class="form-label">Check out</span> </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                             <select class="form-control" name='troom' id="type of room" required>
+                                                <option value="" selected hidden>Type of room</option>
+                                                <option>single</option>
+                                                <hr>
+                                                <option>double</option>
+                                                <hr>
+                                                <option >suit</option>
+                                                <hr>
+                                                <option style="background-color: gold;">presidential suit</option>
+                                            </select> <span class="select-arrow"></span> <span class="form-label">Rooms</span> </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group"> 
+                                            <select class="form-control"name='noofad' id="noof adults" required>
+                                                <option value=""  selected hidden>no of adults</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                            </select> <span class="select-arrow"></span> <span class="form-label">Adults</span> </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group"> 
+                                            <select class="form-control" name='noofchild'id="noof child" required>
+                                                <option value=""  selected hidden>no of children</option>
+                                                <option>0</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                            </select> <span class="select-arrow"></span> <span class="form-label">Children</span> </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group"> <input class="form-control" type="text" name="coup" placeholder="coupen code" name="coupen" id="coup" autocomplete="off"> <span class="form-label">Coupen</span> </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group"> <input class="form-control" type="tel" id="phno" placeholder="Enter you Phone" name='ph' autocomplete="off"  pattern="\d*"/> <span class="form-label">Phone</span> </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group"> 
+                                            <select  id="branch" name="branch" class="form-control" required> 
+                                            <option value="" selected hidden>Hotel branch</option>
+                                            <option>Nellore</option>
+                                            <option>Chennai</option>
+                                            <option>Hyderbad</option>
+                                        </select> <span class="select-arrow"></span> <span class="form-label">branch</span> </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group" > 
+                                            <select id="noof rooms" name="noofroom" class="form-control" required> 
+                                            <option value=""  selected hidden>number of rooms</option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                        </select> <span class="select-arrow"></span> <span class="form-label">noof room</span> </div>
+                                    </div>
+                                </div>
+                                <div class="form-btn"> <button id="check" type="submit"  >Book Now</button> </div>
+
+                                    </form>
+                                </div>
+                            
+                           
+                        </div>
+                    </div>
+                </div>
+              
+            </div>
+            <div id="mysidenav7" class="sidenav" >
+               
+                <div id="hidden2">
+                    <div style="font-weight:bold;text-align:  center;padding-top: 10px;color: rgb(223, 111, 19);">CONFIRMATION</div>
+                   <hr style="border-color: rgb(255, 255, 255);">
+                   <div id="details" style="padding:20px;">
+                    <form >
+                     <h4 >name:<span id='name' ></span></h4>
+                     <h4 >phone number:<span id='phno'></span></h4>
+                     <h4 >booking date:<span id='bd'></span></h4>
+                     <h4 >Number of days:<span id='nd'></span></h4>
+                     <h4 >Type of room:<span id='ty'></span></h4>
+                     <h4 >Branch:<span id='bran'></span></h4>
+                     <h4 >Number of rooms:<span id='noro'></span></h4>
+                     <h5 style="color: wheat;"> Total cost:<span id="amnt"></span></h5>
+                     <h5  style="color: wheat;">Discounted Amount:<span id="damnt" name="cost"></span></h5>             
+                     
+                     <button id="cb" type="submit" onclick="next()" >proceed</button>
+                     <button id="no"  onclick="closeNav7()">back</button>
+                     </form>
+                   </div>
+                   </div>
+
+               </div>
+           
+            <nav id="nav" class="navbar navbar-dark">
+                <button class="navbar-toggler" onclick="openNav6()" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <span id="h" >
+                    <h6 id="o">Offers</h6>
+                </span>
+              </nav>
+             <span id="subnav">
+                 <img onclick="openNav6()" id="navtop"src="https://icon-library.com/images/navbar-icon/navbar-icon-17.jpg"style=" width:80px;height:80px;">
+             </span>
+                                              
+              
+              
+              <div id="mysidenav6" class="sidenav" >
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav6()">&times;</a>
+                <div class="wrapper">
+
+                    <div id="cla">
+                      <h3>Offers</h3>
+      
+                    </div>
+                    <div class="menu">
+                        <div class="single-menu">
+                            <div class="menu-content">
+                                <h4>HDFC book<span>code:hdfc10</span></h4>
+                                <p>book with hdfc bank account and get 10% off</p>                           
+                            </div>                        
+                        </div>
+                        <div class="single-menu">
+                            <div class="menu-content">
+                                <h4>ICICI<span>code:icici5</span></h4>
+                                <p>book with icici bank account and get 5% off</p>                           
+                            </div>                        
+                        </div>
+                     
+                        <div class="single-menu">
+                            <div class="menu-content">
+                                <h4>SYNDICATE<span>code:SYND15</span></h4>
+                                <p>book with SYNDICATE bank account and get 15% off</p>                           
+                            </div>                        
+                        </div>
+                        </div>
+                        <div id="cla" class="cla1">
+                            <h3> LOGIN Offers
+                                <p id="loginv" style="color: white;font-size:small;"></p>
+                            </h3>
+                            
+                          </div>
+                          <div class="menu" id="lm">
+                            <div class="single-menu">
+                                <div class="menu-content">
+                                    <h4>First<span>code:first30</span></h4>
+                                    <p>use this coupen to make first booking with 30 %off</p>                           
+                                </div>                        
+                            </div>
+                            <div class="single-menu">
+                                <div class="menu-content">
+                                    <h4>HDFC<span>code:HDFC40</span></h4>
+                                    <p>book with hdfc bank account and get 40% off</p>                           
+                                </div>                        
+                            </div>
+                            </div>
+                            <div id="cla" class="cla1">
+                                <h3>GOLDEN PASS
+                                    <p id="gold" style="color: white;font-size:small;"></p>
+                                </h3>
+                                
+                
+                              </div>
+                              <div class="menu" id="gp">
+                                <div class="single-menu">
+                                    <div class="menu-content">
+                                        <h4>Gcust<span>code:gcust25</span></h4>
+                                        <p>use this coupen to make 25%off with every booking</p>                           
+                                    </div>                        
+                                </div>
+                                <div class="single-menu">
+                                    <div class="menu-content">
+                                        <h4>Gcust1<span>code:GCUST50</span></h4>
+                                        <p>use this code to make 50%off with FIRST goldpass booking</p>                           
+                                    </div>                        
+                                </div>
+    
+                                </div>
+     
+        </div>
+        </div>
+        
+    </body>
+</html>
